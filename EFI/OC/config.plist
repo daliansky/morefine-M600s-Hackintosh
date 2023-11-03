@@ -3,11 +3,11 @@
 <plist version="1.0">
     <dict>
         <key>#Build Date</key>
-        <string>5-9-2023</string>
+        <string>11-3-2023</string>
         <key>#Maker by</key>
         <string>morefine M600S</string>
         <key>#OpenCore Version</key>
-        <string>v0.9.1 Release</string>
+        <string>v0.9.5 Release</string>
         <key>#Posted on</key>
         <string>黑果小兵的部落阁 https://blog.daliansky.net</string>
         <key>#Repository</key>
@@ -218,6 +218,24 @@
                     <true/>
                     <key>ExecutablePath</key>
                     <string>Contents/MacOS/VirtualSMC</string>
+                    <key>MaxKernel</key>
+                    <string></string>
+                    <key>MinKernel</key>
+                    <string></string>
+                    <key>PlistPath</key>
+                    <string>Contents/Info.plist</string>
+                </dict>
+                <dict>
+                    <key>Arch</key>
+                    <string>Any</string>
+                    <key>BundlePath</key>
+                    <string>AMFIPass.kext</string>
+                    <key>Comment</key>
+                    <string>V1.4.0</string>
+                    <key>Enabled</key>
+                    <true/>
+                    <key>ExecutablePath</key>
+                    <string>Contents/MacOS/AMFIPass</string>
                     <key>MaxKernel</key>
                     <string></string>
                     <key>MinKernel</key>
@@ -1469,21 +1487,39 @@
             <dict>
                 <key>4D1FDA02-38C7-4A6A-9CC6-4BCCA8B30102</key>
                 <dict>
+                    <key>OCLP-Settings</key>
+                    <string>-allow_amfi</string>
+                    <key>revblock</key>
+                    <string>media</string>
                     <key>revcpu</key>
                     <integer>1</integer>
                     <key>revcpuname</key>
                     <string>AMD Ryzen™ 9 5900HX</string>
+                    <key>revpatch</key>
+                    <string>sbvmm</string>
                     <key>rtc-blacklist</key>
                     <data></data>
                 </dict>
                 <key>7C436110-AB2A-4BBB-A880-FE41995C9F82</key>
                 <dict>
+                    <key># BCM94360 boot-args</key>
+                    <string>amfi=0x80 revpatch=sbvmm -lilubetaall keepsyms=1 e1000=0 alcid=69 agdpmod=pikera</string>
+                    <key># BCM94360 csr-active-config</key>
+                    <data>AwgAAA==</data>
+                    <key>#csr-active-config (SIP enabled)</key>
+                    <data>AAAAAA==</data>
+                    <key>#csr-active-config (macOS 10.13)</key>
+                    <data>/wMAAA==</data>
+                    <key>#csr-active-config (macOS 10.14/10.15)</key>
+                    <data>7wcAAA==</data>
+                    <key>#csr-active-config (macOS 11/12/13)</key>
+                    <data>AwgAAA==</data>
                     <key>ForceDisplayRotationInEFI</key>
                     <integer>0</integer>
                     <key>SystemAudioVolume</key>
                     <data>Rg==</data>
                     <key>boot-args</key>
-                    <string>amfi=0x80 revpatch=sbvmm alcid=60 keepsyms=1 debug=0x100 agdpmod=pikera -lilubetaall</string>
+                    <string>ipc_control_port_options=0 -no_compat_check  alcid=60 keepsyms=1 debug=0x100 agdpmod=pikera -lilubetaall</string>
                     <key>csr-active-config</key>
                     <data>AwgAAA==</data>
                     <key>prev-lang:kbd</key>
@@ -1500,6 +1536,9 @@
                 </array>
                 <key>4D1FDA02-38C7-4A6A-9CC6-4BCCA8B30102</key>
                 <array>
+                    <string>revblock</string>
+                    <string>revpatch</string>
+                    <string>OCLP-Version</string>
                     <string>rtc-blacklist</string>
                     <string>opencore-version</string>
                     <string>revcpu</string>
